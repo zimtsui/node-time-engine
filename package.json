@@ -2,11 +2,10 @@
     "name": "web-timer",
     "version": "0.0.1",
     "description": "",
-    "main": "./dist/index.js",
-    "types": "./dist/index.d.ts",
-    "type": "module",
+    "main": "./build/web-timer.js",
+    "types": "./build/web-timer.d.ts",
     "scripts": {
-        "build": "tsc -b ./src",
+        "build": "tsc -b ./src/tsconfig.json",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "author": "Zim",
