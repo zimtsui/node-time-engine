@@ -7,6 +7,8 @@ export declare type TimeoutId = {
 } | {
     type: 'GlobalImmediate';
     immediate: GlobalImmediate;
+} | {
+    type: 'null';
 };
 export interface SetTimeout<TimeoutId> {
     (cb: () => void, ms: number): TimeoutId;

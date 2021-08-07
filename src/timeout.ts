@@ -6,6 +6,8 @@ export type TimeoutId = {
 } | {
     type: 'GlobalImmediate';
     immediate: GlobalImmediate;
+} | {
+    type: 'null',
 };
 
 export interface SetTimeout<TimeoutId> {
@@ -16,18 +18,22 @@ export interface ClearTimeout<TimeoutId> {
 }
 
 export const setTimeout: SetTimeout<TimeoutId> = (cb, ms) => {
-    return ms ? {
-        type: 'GlobalTimeout',
-        timeout: globalThis.setTimeout(cb, ms),
-    } : {
+    if (ms === 0) return {
         type: 'GlobalImmediate',
         immediate: globalThis.setImmediate(cb),
+    };
+    if (ms === Number.POSITIVE_INFINITY) return {
+        type: 'null',
+    };
+    return {
+        type: 'GlobalTimeout',
+        timeout: globalThis.setTimeout(cb, ms),
     };
 }
 
 export const clearTimeout: ClearTimeout<TimeoutId> = id => {
     if (id.type === 'GlobalImmediate')
         clearImmediate(id.immediate);
-    else
+    else if (id.type === 'GlobalTimeout')
         globalThis.clearTimeout(id.timeout);
 }
