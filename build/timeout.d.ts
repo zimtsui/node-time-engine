@@ -10,10 +10,10 @@ export declare type TimeoutId = {
 } | {
     type: 'null';
 };
-export interface SetTimeout<TimeoutId> {
+interface SetTimeout<TimeoutId> {
     (cb: () => void, ms: number): TimeoutId;
 }
-export interface ClearTimeout<TimeoutId> {
+interface ClearTimeout<TimeoutId> {
     (id: TimeoutId): void;
 }
 export declare const setTimeout: SetTimeout<TimeoutId>;
