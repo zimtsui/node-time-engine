@@ -1,39 +1,32 @@
-type GlobalTimeout = ReturnType<typeof globalThis.setTimeout>;
-type GlobalImmediate = ReturnType<typeof globalThis.setImmediate>;
 export type TimeoutId = {
-    type: 'GlobalTimeout';
-    timeout: GlobalTimeout;
+    type: 'NodeJS.Timeout';
+    value: NodeJS.Timeout;
 } | {
-    type: 'GlobalImmediate';
-    immediate: GlobalImmediate;
+    type: 'NodeJS.Immediate';
+    value: NodeJS.Immediate;
 } | {
-    type: 'null',
+    type: 'null';
+    value: null;
 };
 
-interface SetTimeout<TimeoutId> {
-    (cb: () => void, ms: number): TimeoutId;
-}
-interface ClearTimeout<TimeoutId> {
-    (id: TimeoutId): void;
-}
-
-export const setTimeout: SetTimeout<TimeoutId> = (cb, ms) => {
+export function setTimeout(cb: () => void, ms: number): TimeoutId {
     if (ms === 0) return {
-        type: 'GlobalImmediate',
-        immediate: globalThis.setImmediate(cb),
+        type: 'NodeJS.Immediate',
+        value: globalThis.setImmediate(cb),
     };
     if (ms === Number.POSITIVE_INFINITY) return {
         type: 'null',
+        value: null,
     };
     return {
-        type: 'GlobalTimeout',
-        timeout: globalThis.setTimeout(cb, ms),
+        type: 'NodeJS.Timeout',
+        value: globalThis.setTimeout(cb, ms),
     };
 }
 
-export const clearTimeout: ClearTimeout<TimeoutId> = id => {
-    if (id.type === 'GlobalImmediate')
-        clearImmediate(id.immediate);
-    else if (id.type === 'GlobalTimeout')
-        globalThis.clearTimeout(id.timeout);
+export function clearTimeout(id: TimeoutId): void {
+    if (id.type === 'NodeJS.Immediate')
+        globalThis.clearImmediate(id.value);
+    else if (id.type === 'NodeJS.Timeout')
+        globalThis.clearTimeout(id.value);
 }

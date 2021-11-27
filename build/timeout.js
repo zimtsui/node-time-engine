@@ -1,27 +1,28 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.clearTimeout = exports.setTimeout = void 0;
-const setTimeout = (cb, ms) => {
+function setTimeout(cb, ms) {
     if (ms === 0)
         return {
-            type: 'GlobalImmediate',
-            immediate: globalThis.setImmediate(cb),
+            type: 'NodeJS.Immediate',
+            value: globalThis.setImmediate(cb),
         };
     if (ms === Number.POSITIVE_INFINITY)
         return {
             type: 'null',
+            value: null,
         };
     return {
-        type: 'GlobalTimeout',
-        timeout: globalThis.setTimeout(cb, ms),
+        type: 'NodeJS.Timeout',
+        value: globalThis.setTimeout(cb, ms),
     };
-};
+}
 exports.setTimeout = setTimeout;
-const clearTimeout = id => {
-    if (id.type === 'GlobalImmediate')
-        clearImmediate(id.immediate);
-    else if (id.type === 'GlobalTimeout')
-        globalThis.clearTimeout(id.timeout);
-};
+function clearTimeout(id) {
+    if (id.type === 'NodeJS.Immediate')
+        globalThis.clearImmediate(id.value);
+    else if (id.type === 'NodeJS.Timeout')
+        globalThis.clearTimeout(id.value);
+}
 exports.clearTimeout = clearTimeout;
 //# sourceMappingURL=timeout.js.map
