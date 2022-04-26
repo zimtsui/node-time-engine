@@ -1,9 +1,4 @@
-interface Callback {
-    (): void;
+import { TimeoutLike, TimeEngineLike, CheckPoint } from 'cancellable';
+export declare class TimeEngine implements TimeEngineLike {
+    setTimeout(checkPoint: CheckPoint): TimeoutLike;
 }
-export interface Timeout {
-    clear(): void;
-}
-export declare function setTimeout(cb: Callback, ms: number): Timeout;
-export declare function clearTimeout(timeout: Timeout): void;
-export {};

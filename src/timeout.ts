@@ -1,12 +1,12 @@
-interface Callback {
-    (): void;
-}
+import {
+    TimeoutLike,
+    Callback,
+    TimeEngineLike,
+    CheckPoint,
+} from 'cancellable';
 
-export interface Timeout {
-    clear(): void;
-}
 
-class Deferred implements Timeout {
+class Deferred implements TimeoutLike {
     private nodeTimeout: NodeJS.Timeout;
 
     public constructor(
@@ -21,7 +21,7 @@ class Deferred implements Timeout {
     }
 }
 
-class Immediate implements Timeout {
+class Immediate implements TimeoutLike {
     private nodeImmediate: NodeJS.Immediate;
     public constructor(cb: Callback) {
         this.nodeImmediate = globalThis.setImmediate(cb);
@@ -32,20 +32,20 @@ class Immediate implements Timeout {
     }
 }
 
-class Perpetual implements Timeout {
+class Perpetual implements TimeoutLike {
     public constructor() { }
     public clear() { }
 }
 
-export function setTimeout(
-    cb: Callback,
-    ms: number,
-): Timeout {
-    if (ms === 0) return new Immediate(cb);
-    if (ms === Number.POSITIVE_INFINITY) return new Perpetual();
-    return new Deferred(cb, ms);
-}
-
-export function clearTimeout(timeout: Timeout): void {
-    timeout.clear();
+export class TimeEngine implements TimeEngineLike {
+    public setTimeout(checkPoint: CheckPoint): TimeoutLike {
+        if (checkPoint.time === 0)
+            return new Immediate(checkPoint.cb);
+        if (checkPoint.time === Number.POSITIVE_INFINITY)
+            return new Perpetual();
+        return new Deferred(
+            checkPoint.cb,
+            checkPoint.time,
+        );
+    }
 }
