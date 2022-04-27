@@ -1,0 +1,1 @@
+{"version":3,"file":"immediate.js","sourceRoot":"","sources":["../src/immediate.ts"],"names":[],"mappings":";;;AAMA,MAAa,SAAS;IAErB,YAAmB,EAAY;QAC9B,IAAI,CAAC,aAAa,GAAG,UAAU,CAAC,YAAY,CAAC,EAAE,CAAC,CAAC;IAClD,CAAC;IAEM,KAAK;QACX,UAAU,CAAC,cAAc,CAAC,IAAI,CAAC,aAAa,CAAC,CAAC;IAC/C,CAAC;CACD;AATD,8BASC"}

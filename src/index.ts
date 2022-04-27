@@ -1,4 +1,4 @@
-export * from './timeout';
+export * from './node-time-engine';
 export {
 	Callback,
 	TimeEngineLike,
