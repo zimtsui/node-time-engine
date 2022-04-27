@@ -1,2 +1,2 @@
 export * from './timeout';
-export { Callback, CheckPoint, TimeEngineLike, TimeoutLike, } from 'cancellable';
+export { Callback, TimeEngineLike, TimeoutLike, } from 'cancellable';

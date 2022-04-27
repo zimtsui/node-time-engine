@@ -1,4 +1,4 @@
-import { TimeoutLike, TimeEngineLike, CheckPoint } from 'cancellable';
+import { TimeoutLike, Callback, TimeEngineLike } from 'cancellable';
 export declare class TimeEngine implements TimeEngineLike {
-    setTimeout(checkPoint: CheckPoint): TimeoutLike;
+    setTimeout(cb: Callback, ms: number): TimeoutLike;
 }

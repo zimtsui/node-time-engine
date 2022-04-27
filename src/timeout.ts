@@ -2,7 +2,6 @@ import {
     TimeoutLike,
     Callback,
     TimeEngineLike,
-    CheckPoint,
 } from 'cancellable';
 
 
@@ -38,14 +37,14 @@ class Perpetual implements TimeoutLike {
 }
 
 export class TimeEngine implements TimeEngineLike {
-    public setTimeout(checkPoint: CheckPoint): TimeoutLike {
-        if (checkPoint.time === 0)
-            return new Immediate(checkPoint.cb);
-        if (checkPoint.time === Number.POSITIVE_INFINITY)
+    public setTimeout(cb: Callback, ms: number): TimeoutLike {
+        if (ms === 0)
+            return new Immediate(cb);
+        if (ms === Number.POSITIVE_INFINITY)
             return new Perpetual();
         return new Deferred(
-            checkPoint.cb,
-            checkPoint.time,
+            cb,
+            ms,
         );
     }
 }

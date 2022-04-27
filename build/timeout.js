@@ -22,12 +22,12 @@ class Perpetual {
     clear() { }
 }
 class TimeEngine {
-    setTimeout(checkPoint) {
-        if (checkPoint.time === 0)
-            return new Immediate(checkPoint.cb);
-        if (checkPoint.time === Number.POSITIVE_INFINITY)
+    setTimeout(cb, ms) {
+        if (ms === 0)
+            return new Immediate(cb);
+        if (ms === Number.POSITIVE_INFINITY)
             return new Perpetual();
-        return new Deferred(checkPoint.cb, checkPoint.time);
+        return new Deferred(cb, ms);
     }
 }
 exports.TimeEngine = TimeEngine;
