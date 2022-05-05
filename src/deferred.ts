@@ -1,20 +1,17 @@
-import {
-	TimeoutLike,
-	Callback,
-} from 'cancellable';
+import { TimeoutLike } from 'cancellable/build/time-engine-like';
 
 
 export class Deferred implements TimeoutLike {
 	private nodeTimeout: NodeJS.Timeout;
 
 	public constructor(
-		cb: Callback,
+		cb: () => void,
 		ms: number,
 	) {
-		this.nodeTimeout = globalThis.setTimeout(cb, ms);
+		this.nodeTimeout = setTimeout(cb, ms);
 	}
 
 	public clear() {
-		globalThis.clearTimeout(this.nodeTimeout);
+		clearTimeout(this.nodeTimeout);
 	}
 }

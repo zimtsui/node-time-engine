@@ -3,10 +3,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Immediate = void 0;
 class Immediate {
     constructor(cb) {
-        this.nodeImmediate = globalThis.setImmediate(cb);
+        this.nodeImmediate = setImmediate(cb);
     }
     clear() {
-        globalThis.clearImmediate(this.nodeImmediate);
+        clearImmediate(this.nodeImmediate);
     }
 }
 exports.Immediate = Immediate;

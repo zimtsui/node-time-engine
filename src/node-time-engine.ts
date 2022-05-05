@@ -1,8 +1,7 @@
 import {
     TimeoutLike,
-    Callback,
     TimeEngineLike,
-} from 'cancellable';
+} from 'cancellable/build/time-engine-like';
 import { Deferred } from './deferred';
 import { Immediate } from './immediate';
 import { Perpetual } from './perpetual';
@@ -10,7 +9,10 @@ import { Perpetual } from './perpetual';
 
 
 export class NodeTimeEngine implements TimeEngineLike {
-    public setTimeout(cb: Callback, ms: number): TimeoutLike {
+    public setTimeout(
+        cb: () => void,
+        ms: number,
+    ): TimeoutLike {
         if (ms === 0)
             return new Immediate(cb);
         if (ms === Number.POSITIVE_INFINITY)
@@ -19,5 +21,9 @@ export class NodeTimeEngine implements TimeEngineLike {
             cb,
             ms,
         );
+    }
+
+    public now(): number {
+        return Date.now();
     }
 }

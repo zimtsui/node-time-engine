@@ -1,4 +1,5 @@
-import { TimeoutLike, Callback, TimeEngineLike } from 'cancellable';
+import { TimeoutLike, TimeEngineLike } from 'cancellable/build/time-engine-like';
 export declare class NodeTimeEngine implements TimeEngineLike {
-    setTimeout(cb: Callback, ms: number): TimeoutLike;
+    setTimeout(cb: () => void, ms: number): TimeoutLike;
+    now(): number;
 }

@@ -3,10 +3,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Deferred = void 0;
 class Deferred {
     constructor(cb, ms) {
-        this.nodeTimeout = globalThis.setTimeout(cb, ms);
+        this.nodeTimeout = setTimeout(cb, ms);
     }
     clear() {
-        globalThis.clearTimeout(this.nodeTimeout);
+        clearTimeout(this.nodeTimeout);
     }
 }
 exports.Deferred = Deferred;

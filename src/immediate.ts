@@ -1,16 +1,13 @@
-import {
-	TimeoutLike,
-	Callback,
-} from 'cancellable';
+import { TimeoutLike } from 'cancellable/build/time-engine-like';
 
 
 export class Immediate implements TimeoutLike {
 	private nodeImmediate: NodeJS.Immediate;
-	public constructor(cb: Callback) {
-		this.nodeImmediate = globalThis.setImmediate(cb);
+	public constructor(cb: () => void) {
+		this.nodeImmediate = setImmediate(cb);
 	}
 
 	public clear() {
-		globalThis.clearImmediate(this.nodeImmediate);
+		clearImmediate(this.nodeImmediate);
 	}
 }

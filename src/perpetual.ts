@@ -1,6 +1,4 @@
-import {
-	TimeoutLike,
-} from 'cancellable';
+import { TimeoutLike } from 'cancellable/build/time-engine-like';
 
 
 export class Perpetual implements TimeoutLike {
