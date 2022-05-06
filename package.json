@@ -11,10 +11,8 @@
     },
     "author": "Zim",
     "license": "SEE LICENSE IN ./LICENSE",
-    "dependencies": {
-        "@types/node": "^16.11.29"
-    },
     "peerDependencies": {
+        "@types/node": ">=16.0",
         "cancellable": "github:zimtsui/cancellable"
     }
 }
