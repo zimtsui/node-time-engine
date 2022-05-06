@@ -1,7 +1,7 @@
 import {
     TimeoutLike,
     TimeEngineLike,
-} from 'cancellable/build/time-engine-like';
+} from 'time-engine-like';
 import { Deferred } from './deferred';
 import { Immediate } from './immediate';
 import { Perpetual } from './perpetual';

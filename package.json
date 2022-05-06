@@ -13,6 +13,6 @@
     "license": "SEE LICENSE IN ./LICENSE",
     "peerDependencies": {
         "@types/node": ">=16.0",
-        "cancellable": "github:zimtsui/cancellable"
+        "time-engine-like": "github:zimtsui/time-engine-like"
     }
 }

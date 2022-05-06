@@ -1,4 +1,4 @@
-import { TimeoutLike } from 'cancellable/build/time-engine-like';
+import { TimeoutLike } from 'time-engine-like';
 
 
 export class Deferred implements TimeoutLike {
