@@ -12,7 +12,9 @@
     "author": "Zim",
     "license": "SEE LICENSE IN ./LICENSE",
     "peerDependencies": {
-        "@types/node": ">=16.0",
         "time-engine-like": "github:zimtsui/time-engine-like"
+    },
+    "dependencies": {
+        "@types/node": "^16.11.40"
     }
 }
