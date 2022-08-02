@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.NodeTimeEngine = void 0;
+exports.nodeTimeEngine = exports.NodeTimeEngine = void 0;
 const time_engine_like_1 = require("time-engine-like");
 const deferred_1 = require("./deferred");
 const immediate_1 = require("./immediate");
@@ -18,4 +18,5 @@ class NodeTimeEngine extends time_engine_like_1.TimeEngineLike {
     }
 }
 exports.NodeTimeEngine = NodeTimeEngine;
+exports.nodeTimeEngine = new NodeTimeEngine();
 //# sourceMappingURL=node-time-engine.js.map

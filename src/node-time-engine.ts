@@ -27,3 +27,5 @@ export class NodeTimeEngine extends TimeEngineLike {
         return Date.now();
     }
 }
+
+export const nodeTimeEngine = new NodeTimeEngine();
