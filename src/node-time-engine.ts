@@ -8,7 +8,7 @@ import { Perpetual } from './perpetual';
 
 
 
-export class NodeTimeEngine implements TimeEngineLike {
+export class NodeTimeEngine extends TimeEngineLike {
     public setTimeout(
         cb: () => void,
         ms: number,
