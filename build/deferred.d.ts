@@ -4,7 +4,7 @@ export declare class Deferred implements TimeoutLike {
     constructor(cb: () => void, ms: number);
     /**
      * @sealed
-     * @decorator boundMethod
+     * @decorator `@boundMethod`
      */
     clear(): void;
 }

@@ -4,7 +4,7 @@ export declare class Immediate implements TimeoutLike {
     constructor(cb: () => void);
     /**
      * @sealed
-     * @decorator boundMethod
+     * @decorator `@boundMethod`
      */
     clear(): void;
 }

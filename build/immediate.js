@@ -14,7 +14,7 @@ class Immediate {
     }
     /**
      * @sealed
-     * @decorator boundMethod
+     * @decorator `@boundMethod`
      */
     clear() {
         clearImmediate(this.nodeImmediate);

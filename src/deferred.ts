@@ -14,7 +14,7 @@ export class Deferred implements TimeoutLike {
 
 	/**
 	 * @sealed
-	 * @decorator boundMethod
+	 * @decorator `@boundMethod`
 	 */
 	@boundMethod
 	public clear() {

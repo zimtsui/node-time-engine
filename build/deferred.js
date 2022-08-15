@@ -14,7 +14,7 @@ class Deferred {
     }
     /**
      * @sealed
-     * @decorator boundMethod
+     * @decorator `@boundMethod`
      */
     clear() {
         clearTimeout(this.nodeTimeout);

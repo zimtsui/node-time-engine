@@ -10,7 +10,7 @@ export class Immediate implements TimeoutLike {
 
 	/**
 	 * @sealed
-	 * @decorator boundMethod
+	 * @decorator `@boundMethod`
 	 */
 	@boundMethod
 	public clear() {
