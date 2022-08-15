@@ -5,10 +5,14 @@ import {
 import { Deferred } from './deferred';
 import { Immediate } from './immediate';
 import { Perpetual } from './perpetual';
+import { boundMethod } from 'autobind-decorator';
 
 
-
+/**
+ * @sealed
+ */
 class NodeTimeEngine extends TimeEngineLike {
+    @boundMethod
     public setTimeout(
         cb: () => void,
         ms: number,
