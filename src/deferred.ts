@@ -1,4 +1,4 @@
-import { TimeoutLike } from 'time-engine-like';
+import { TimeoutLike } from '@zimtsui/time-engine-like';
 import { boundMethod } from 'autobind-decorator';
 
 

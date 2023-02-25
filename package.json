@@ -2,6 +2,9 @@
     "name": "node-time-engine",
     "version": "0.0.1",
     "description": "",
+    "engines": {
+        "node": ">=14"
+    },
     "main": "./build/node-time-engine.js",
     "types": "./build/node-time-engine.d.ts",
     "scripts": {
@@ -13,10 +16,10 @@
     "author": "Zim",
     "license": "SEE LICENSE IN ./LICENSE",
     "peerDependencies": {
-        "time-engine-like": "github:zimtsui/time-engine-like"
+        "@zimtsui/time-engine-like": "^0.0.2"
     },
     "dependencies": {
-        "@types/node": "^16.11.40",
+        "@types/node": "^14.18.36",
         "autobind-decorator": "^2.4.0"
     }
 }

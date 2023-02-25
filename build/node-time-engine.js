@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.nodeTimeEngine = void 0;
-const time_engine_like_1 = require("time-engine-like");
+const time_engine_like_1 = require("@zimtsui/time-engine-like");
 const deferred_1 = require("./deferred");
 const immediate_1 = require("./immediate");
 const perpetual_1 = require("./perpetual");

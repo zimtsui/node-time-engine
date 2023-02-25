@@ -1,7 +1,7 @@
 import {
     TimeoutLike,
     TimeEngineLike,
-} from 'time-engine-like';
+} from '@zimtsui/time-engine-like';
 import { Deferred } from './deferred';
 import { Immediate } from './immediate';
 import { Perpetual } from './perpetual';
