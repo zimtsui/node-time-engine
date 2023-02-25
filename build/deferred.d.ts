@@ -1,5 +1,5 @@
-import { TimeoutLike } from '@zimtsui/time-engine-like';
-export declare class Deferred implements TimeoutLike {
+import { TimeEngineLike } from '@zimtsui/time-engine-like';
+export declare class Deferred implements TimeEngineLike.TimeoutLike {
     private nodeTimeout;
     constructor(cb: () => void, ms: number);
     /**

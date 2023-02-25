@@ -1,8 +1,8 @@
-import { TimeoutLike } from '@zimtsui/time-engine-like';
+import { TimeEngineLike } from '@zimtsui/time-engine-like';
 import { boundMethod } from 'autobind-decorator';
 
 
-export class Deferred implements TimeoutLike {
+export class Deferred implements TimeEngineLike.TimeoutLike {
 	private nodeTimeout: NodeJS.Timeout;
 
 	public constructor(

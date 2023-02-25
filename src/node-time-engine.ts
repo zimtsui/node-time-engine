@@ -1,7 +1,4 @@
-import {
-    TimeoutLike,
-    TimeEngineLike,
-} from '@zimtsui/time-engine-like';
+import { TimeEngineLike } from '@zimtsui/time-engine-like';
 import { Deferred } from './deferred';
 import { Immediate } from './immediate';
 import { Perpetual } from './perpetual';
@@ -14,7 +11,7 @@ class NodeTimeEngine extends TimeEngineLike {
     public setTimeout = (
         cb: () => void,
         ms: number,
-    ): TimeoutLike => {
+    ): TimeEngineLike.TimeoutLike => {
         if (ms === 0)
             return new Immediate(cb);
         if (ms === Number.POSITIVE_INFINITY)

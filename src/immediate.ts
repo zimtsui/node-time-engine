@@ -1,8 +1,8 @@
-import { TimeoutLike } from '@zimtsui/time-engine-like';
+import { TimeEngineLike } from '@zimtsui/time-engine-like';
 import { boundMethod } from 'autobind-decorator';
 
 
-export class Immediate implements TimeoutLike {
+export class Immediate implements TimeEngineLike.TimeoutLike {
 	private nodeImmediate: NodeJS.Immediate;
 	public constructor(cb: () => void) {
 		this.nodeImmediate = setImmediate(cb);
