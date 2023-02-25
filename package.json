@@ -1,6 +1,6 @@
 {
     "name": "@zimtsui/node-time-engine",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "",
     "engines": {
         "node": ">=14"
