@@ -1,5 +1,5 @@
 {
-    "name": "node-time-engine",
+    "name": "@zimtsui/node-time-engine",
     "version": "0.0.1",
     "description": "",
     "engines": {
@@ -12,6 +12,10 @@
         "clean": "rm -rf ./build",
         "rebuild": "npm run clean && npm run build",
         "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/zimtsui/node-time-engine.git"
     },
     "author": "Zim",
     "license": "SEE LICENSE IN ./LICENSE",
